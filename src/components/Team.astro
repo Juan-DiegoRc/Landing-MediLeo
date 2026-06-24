@@ -1,0 +1,60 @@
+---
+const team = [
+  {
+    initials: "JD",
+    name: "Juan Diego Rendon",
+    role: "Project Managee",
+    bio: "Lidera el producto y colaborador en la creacion web y app.",
+  },
+  {
+    initials: "LC",
+    name: "Luis Castro",
+    role: "Developer — API Gateway",
+    bio: "...",
+  },
+  {
+    initials: "JD",
+    name: "Juan David ",
+    role: "Lider del proyecto",
+    bio: "---",
+  },
+  {
+    initials: "LD",
+    name: "Leonard Díaz",
+    role: "---",
+    bio: "---",
+  },
+];
+---
+
+<section id="nosotros" class="px-6 py-24 max-w-6xl mx-auto">
+  <!-- Eyebrow badge -->
+  <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm text-gray-600 mb-6">
+    <span class="h-1.5 w-1.5 rounded-full bg-gray-900"></span>
+    El equipo · Barranquilla, Colombia
+  </div>
+
+  <!-- Heading -->
+  <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-3xl">
+    Cuatro personas, un sistema completo
+  </h2>
+  <p class="mt-4 text-gray-600 max-w-2xl text-lg">
+    MediLEO nace como proyecto de un equipo pequeño que divide el problema
+    igual que se divide el sistema: hardware, datos, plataforma y
+    experiencia de usuario.
+  </p>
+
+  <!-- Grid de integrantes -->
+  <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {team.map((member) => (
+      <div class="rounded-2xl border border-gray-200 p-6">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white font-semibold mb-4">
+          {member.initials}
+        </div>
+        <h3 class="font-semibold text-gray-900">{member.name}</h3>
+        <p class="text-sm text-gray-500 mt-0.5">{member.role}</p>
+        <p class="mt-3 text-sm text-gray-600 leading-relaxed">{member.bio}</p>
+      </div>
+    ))}
+  </div>
+</section>
