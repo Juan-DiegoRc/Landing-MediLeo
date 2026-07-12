@@ -1,83 +1,114 @@
-<section id="problem" class="space-y-7 border-b border-gray-200 pb-5">
-    <div class="flex flex-col items-start gap-y-3">
-        <h1 class="text-4xl font-semibold">
-            La Costa Caribe paga la energía <br />más cara del país
-        </h1>
-        <p class="text-lg">
+---
+import {
+    FileText,
+    Plug,
+    Thermometer,
+    MapPin,
+    type Icon as IconType,
+} from "@lucide/astro";
+import EyebrowBadge from "./common/EyebrowBadge.astro";
+
+type ProblemCard = {
+    title: string;
+    label: string;
+    span: string;
+    icon: typeof IconType;
+};
+
+const stats = [
+    {
+        value: "+34%",
+        label: "Más caro el kWh en Barranquilla vs. Bogotá en enero 2024 — 1.166 vs. 871 COP/kWh",
+    },
+    {
+        value: "$225k",
+        label: "Factura mensual de un hogar de estrato medio en Barranquilla por 144 kWh en julio 2024",
+    },
+    {
+        value: "~500",
+        label: "COP por hora de aire acondicionado nuevo — hasta el triple con equipos viejos",
+    },
+];
+
+const problemCards: ProblemCard[] = [
+    {
+        title: "Facturas impredecibles",
+        label: "Sin medición detallada, las familias descubren su consumo real solo al recibir la factura, sin posibilidad de reaccionar a tiempo.",
+        span: "Sin visibilidad en tiempo real",
+        icon: FileText,
+    },
+    {
+        title: "Clima y aire acondicionado",
+        label: "El calor del Caribe exige AC continuo. Un equipo viejo puede triplicar el costo por hora, disparando el consumo diario sin que el hogar lo note.",
+        span: "Mayor gasto invisible del hogar",
+        icon: Thermometer,
+    },
+    {
+        title: "Electrodomésticos ineficientes",
+        label: "Un hogar costeño redujó ~100 kWh/mes solo cambiando su nevera. Sin herramientas, es imposible saber qué aparato está consumiendo de más.",
+        span: "111.000 COP/mes recuperables",
+        icon: Plug,
+    },
+    {
+        title: "Tarifas regionales más altas",
+        label: "Los hogares de la Costa pagan tarifas superiores al promedio nacional y reciben subsidios reducidos, dejando el costo de la energía proporcionalmente alto.",
+        span: "Subsidios ineficientes",
+        icon: MapPin,
+    },
+];
+---
+
+<section id="problem" class="px-6 py-24">
+    <div class="mx-auto flex w-full max-w-5xl flex-col">
+        <EyebrowBadge label="El problema" />
+
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight max-w-3xl font-primary text-secondary">
+            La Costa Caribe paga la energía <br class="hidden sm:inline" />más
+            cara del país
+        </h2>
+        <p class="mt-4 text-secondary-900 max-w-2xl text-lg font-secondary">
             Y la mayoría de los hogares no sabe por qué. Sin visibilidad del
             consumo, ahorrar es imposible.
         </p>
-    </div>
 
-    <div class="flex items-center justify-center gap-x-5">
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 flex flex-col gap-y-2">
-                <h1 class="text-4xl font-bold">+34%</h1>
-                <p class="text-sm">Más caro el kWh en Barranquilla vs. Bogotá en enero 2024 — 1.166 vs. 871 COP/kWh</p>
-            </div>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+                stats.map((stat) => (
+                    <div class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-3xl font-semibold text-secondary font-secondary">
+                            {stat.value}
+                        </div>
+                        <p class="mt-2 text-sm text-secondary-900 leading-relaxed font-secondary">
+                            {stat.label}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 flex flex-col gap-y-2">
-                <h1 class="text-4xl font-bold">$225k</h1>
-                <p class="text-sm">Factura mensual de un hogar de estrato medio en Barranquilla por 144 kWh en julio 2024</p>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 flex flex-col gap-y-2">
-                <h1 class="text-4xl font-bold">~500</h1>
-                <p class="text-sm">COP por hora de aire acondicionado nuevo — hasta el triple con equipos viejos</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="grid grid-cols-2 gap-5">
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="flex flex-col gap-y-5">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-xl font-bold">Facturas impredecibles</h1>
-                    <p class="text-sm">Sin medición detallada, las familias descubren su consumo real solo al recibir la factura, sin posibilidad de reaccionar a tiempo.</p>
-                </div>
-                <div class="max-w-fit border-2 border-gray-400/40 bg-gray-200 px-2 py-1 rounded-2xl">
-                    <!-- <svg></svg> -->
-                    <span class="text-sm">Sin visibilidad en tiempo real</span>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="flex flex-col gap-y-5">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-xl font-bold">Clima y aire acondicionado</h1>
-                    <p class="text-sm">El calor del Caribe exige AC continuo. Un equipo viejo puede triplicar el costo por hora, disparando el consumo diario sin que el hogar lo note.</p>
-                </div>
-                <div class="max-w-fit border-2 border-gray-400/40 bg-gray-200 px-2 py-1 rounded-2xl">
-                    <!-- <svg></svg> -->
-                    <span class="text-sm">Mayor gasto invicible del hogar</span>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="flex flex-col gap-y-5">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-xl font-bold">Electrodomésticos ineficientes</h1>
-                    <p class="text-sm">Un hogar costeño redujo ~100 kWh/mes solo cambiando su nevera. Sin herramientas, es imposible saber qué aparato está consumiendo de más.</p>
-                </div>
-                <div class="max-w-fit border-2 border-gray-400/40 bg-gray-200 px-2 py-1 rounded-2xl">
-                    <!-- <svg></svg> -->
-                    <span class="text-sm">111.000 COP/mes recuperables</span>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="flex flex-col gap-y-5">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-xl font-bold">Tarifas regionales más altas</h1>
-                    <p class="text-sm">Los hogares de la Costa pagan tarifas superiores al promedio nacional y reciben subsidios reducidos, dejando el costo de la energía proporcionalmente alto.</p>
-                </div>
-                <div class="max-w-fit border-2 border-gray-400/40 bg-gray-200 px-2 py-1 rounded-2xl">
-                    <!-- <svg></svg> -->
-                    <span class="text-sm">Subsidios ineficientes</span>
-                </div>
-            </div>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {
+                problemCards.map((card) => (
+                    <div class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-secondary">
+                            <card.icon class="h-5 w-5" aria-hidden="true" />
+                        </div>
+                        <div class="mt-4 flex flex-col gap-y-4">
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-xl font-semibold text-secondary font-secondary ">
+                                    {card.title}
+                                </h3>
+                                <p class="text-sm leading-relaxed text-secondary-900">
+                                    {card.label}
+                                </p>
+                            </div>
+                            <span class="max-w-fit inline-flex items-center gap-2 rounded-full border border-quaternary-200 bg-quaternary-100 px-4 py-1.5 text-xs text-secondary-900 font-secondary font-medium">
+                                {card.span}
+                            </span>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>

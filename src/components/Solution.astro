@@ -1,67 +1,193 @@
-<section id="solution" class="space-y-7 border-b border-gray-200 pb-5">
-    <div class="flex flex-col items-start gap-y-3">
-        <h1 class="text-4xl font-semibold">Medición inteligente al alcance de cada hogar</h1>
-        <p class="text-lg text-gray-400">MediLEO convierte datos de consumo eléctrico en información útil, clara y accionable <br> — minuto a minuto, desde un dispositivo IoT accesible.</p>
-    </div>
+---
+import {
+    Cpu,
+    ChartColumn,
+    Sparkles,
+    type Icon as IconType,
+} from "@lucide/astro";
+import EyebrowBadge from "./common/EyebrowBadge.astro";
 
-    <div class="grid grid-cols-2 gap-5">   
-        <div class="border-2 border-gray-200 p-5 rounded-md">
-            <span class="font-medium text-gray-400 mb-5 block">COMO FUNCIONA EL SISTEMA</span>
-            <div class="space-y-5">
-                <div class="flex gap-3 items-start">
-                    <div class="flex items-center justify-center w-7 h-7 rounded-[50%] shrink-0 border">1</div>
-                    <div class="space-y-1">
-                        <h2 class="text-lg font-semibold tracking-tight">Captura del medidor</h2>
-                        <p class="text-sm">El ESP32 se conecta al medidor del hogar y registra el consumo de energía continuamente.</p>
-                        <span class="inline-block border border-gray-200 rounded-2xl px-2 py-1 text-xs">Hardware · C/C++</span>
-                        
+type FeatureCard = {
+    title: string;
+    label: string;
+    icon: typeof IconType;
+};
+
+const steps = [
+    {
+        id: "1",
+        title: "Captura del medidor",
+        label: "El ESP32 se conecta al medidor del hogar y registra el consumo de energía continuamente.",
+        tech: "Hardware · C/C++",
+    },
+    {
+        id: "2",
+        title: "Envío a la nube vía WiFi",
+        label: "Los datos viajan en tiempo real a la plataforma MediLEO sin cables adicionales ni instalaciones complejas.",
+        tech: "WiFi · Tiempo real",
+    },
+    {
+        id: "3",
+        title: "Visualización y alertas",
+        label: "La app web/móvil muestra gráficos por hora y día, detecta gastos anómalos y genera recomendaciones prácticas.",
+        tech: "App móvil",
+    },
+];
+
+const featureCards: FeatureCard[] = [
+    {
+        title: "Monitor IoT en tiempo real",
+        label: "El ESP32 mide continuamente los kWh de la vivienda y los envía a la nube sin interrupciones.",
+        icon: Cpu,
+    },
+    {
+        title: "Gráficas y alertas intuitivas",
+        label: "Visualiza tu consumo por hora o por día y recibe alertas si detectamos un uso excesivo o inusual.",
+        icon: ChartColumn,
+    },
+    {
+        title: "Recomendaciones inteligentes",
+        label: "Analizamos tus patrones de uso y te sugerimos acciones concretas: cambio de equipos, hábitos y horarios.",
+        icon: Sparkles,
+    },
+];
+
+const dashboardStats = [
+    { label: "Consumo hoy", value: "8.4 kWh", change: "−12% vs. ayer" },
+    { label: "Costo estimado", value: "$9.800", change: "COP · al día" },
+    { label: "Pico detectado", value: "14:30", change: "AC · 2.1 kWh/h" },
+];
+
+const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
+---
+
+<section id="solution" class="px-6 py-24">
+    <div class="mx-auto flex w-full max-w-5xl flex-col">
+        <EyebrowBadge label="La solución · Medición inteligente" />
+
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-3xl font-primary">
+            Medición inteligente al alcance de cada hogar
+        </h2>
+        <p class="mt-4 text-gray-600 max-w-2xl text-lg font-secondary">
+            MediLEO convierte datos de consumo eléctrico en información útil,
+            clara y accionable — minuto a minuto, desde un dispositivo IoT
+            accesible.
+        </p>
+
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="rounded-2xl border border-gray-200 p-6">
+                <span class="font-medium text-gray-400 mb-5 block text-xs uppercase tracking-wide">
+                    Cómo funciona el sistema
+                </span>
+                <div class="space-y-5">
+                    {
+                        steps.map((step) => (
+                            <div class="flex gap-3 items-start">
+                                <div class="flex items-center justify-center w-7 h-7 rounded-full shrink-0 border border-gray-200 text-sm font-medium text-gray-700">
+                                    {step.id}
+                                </div>
+                                <div class="space-y-1">
+                                    <h3 class="text-lg font-semibold tracking-tight text-gray-900">
+                                        {step.title}
+                                    </h3>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        {step.label}
+                                    </p>
+                                    <span class="inline-block border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-600 mt-2">
+                                        {step.tech}
+                                    </span>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-200 p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-5">
+                    <span class="font-medium text-gray-400 text-xs uppercase tracking-wide">
+                        Panel del hogar · Hoy
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white border border-gray-200 px-2.5 py-1 text-xs text-gray-600">
+                        <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        En vivo
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                    {
+                        dashboardStats.map((stat) => (
+                            <div class="rounded-xl border border-gray-200 bg-white p-3">
+                                <p class="text-xs text-gray-500">
+                                    {stat.label}
+                                </p>
+                                <p class="mt-1 text-lg font-bold text-gray-900">
+                                    {stat.value}
+                                </p>
+                                <p class="mt-0.5 text-xs text-gray-400">
+                                    {stat.change}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div class="rounded-xl border border-gray-200 bg-white p-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <p class="text-sm font-medium text-gray-900">
+                            Consumo por hora
+                        </p>
+                        <p class="text-xs text-gray-400">Últimas 12 h</p>
+                    </div>
+                    <div class="flex items-end justify-between gap-1 h-24" aria-hidden="true">
+                        {
+                            hourlyBars.map((height) => (
+                                <div class="flex-1 rounded-sm bg-gray-500/80" style={`height: ${height}%`} />
+                            ))
+                        }
                     </div>
                 </div>
-                <div class="flex gap-3 items-start">
-                    <div class="flex items-center justify-center w-7 h-7 rounded-[50%] shrink-0 border">2</div>
-                    <div class="space-y-1">
-                        <h2 class="text-lg font-semibold tracking-tight">Envío a la nuve vía WIFI</h2>
-                        <p class="text-sm">Los datos viajan en tiempo real a la plataforma MediLEO sin cables adicionales ni instalaciones complejas.</p>
-                        <span class="inline-block border border-gray-200 rounded-2xl px-2 py-1 text-xs">WiFi · Tiempo real</span>
-                    </div>
-                </div>
-                <div class="flex gap-3 items-start">
-                    <div class="flex items-center justify-center w-7 h-7 rounded-[50%] shrink-0 border">3</div>
-                    <div class="space-y-1">
-                        <h2 class="text-lg font-semibold tracking-tight">Visualización y alertas</h2>
-                        <p class="text-sm">La app web/móvil muestra gráficos por hora y día, detecta gastos anómalos y genera recomendaciones prácticas.</p>
-                        <span class="inline-block border border-gray-200 rounded-2xl px-2 py-1 text-xs">App móvil</span>
-                    </div>
+
+                <div class="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
+                    <p class="text-sm font-medium text-amber-900">
+                        Alerta de consumo
+                    </p>
+                    <p class="mt-1 text-xs text-amber-800 leading-relaxed">
+                        El aire acondicionado superó el promedio diario entre
+                        14:00 y 15:00. Considera subir 1°C para ahorrar ~$1.200
+                        COP hoy.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="border-2 border-gray-200 p-5 rounded-md">
-            <h2 class="font-medium text-gray-400">PANEL DEL HOGAR · HOY</h2>
-        </div>
-    </div>
 
-    <div class="border-l-3 pl-4 my-2">
-        <p class="text-sm leading-7 italic">"La medición inteligente permite un mayor empoderamiento del consumidor eléctrico, al brindarle datos precisos de su uso energético". MediLEO aplica este principio: al conocer y entender el propio consumo, los hogares aprenden a ahorrar.</p>
-    </div>
+        <blockquote class="border-l-4 border-gray-200 pl-4 my-10">
+            <p class="text-sm leading-7 italic text-gray-500">
+                "La medición inteligente permite un mayor empoderamiento del
+                consumidor eléctrico, al brindarle datos precisos de su uso
+                energético". MediLEO aplica este principio: al conocer y
+                entender el propio consumo, los hogares aprenden a ahorrar.
+            </p>
+        </blockquote>
 
-    <div class="flex items-center justify-center gap-x-5 mt-5">
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 h-40 flex flex-col gap-y-2">
-                <h1 class="text-xl font-bold">Monitor IoT en tiempo real</h1>
-                <p class="text-sm">El ESP32 mide continuamente los kWh de la vivienda y los envía a la nube sin interrupciones.</p>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 h-40 flex flex-col gap-y-2">
-                <h1 class="text-xl font-bold">Gráficas y alertas intuitivas</h1>
-                <p class="text-sm">Visualiza tu consumo por hora o por día y recibe alertas si detectamos un uso excesivo o inusual.</p>
-            </div>
-        </div>
-        <div class="p-5 border-2 border-gray-200 rounded-md">
-            <div class="w-40 h-40 flex flex-col gap-y-2">
-                <h1 class="text-xl font-bold">Recomendaciones de ahorro</h1>
-                <p class="text-sm">Analizamos tus patrones de uso y te sugerimos acciones concretas: cambio de equipos, hábitos, horarios</p>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+                featureCards.map((card) => (
+                    <div class="rounded-2xl border border-gray-200 p-6">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-700">
+                            <card.icon class="h-5 w-5" aria-hidden="true" />
+                        </div>
+                        <div class="mt-4 flex flex-col gap-y-2">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                {card.title}
+                            </h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                {card.label}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>
