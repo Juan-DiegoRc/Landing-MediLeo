@@ -1,46 +1,98 @@
-# Astro Starter Kit: Basics
+# MediLEO Landing
 
-```sh
-npm create astro@latest -- --template basics
+Landing page del proyecto MediLEO, una solución IoT orientada a ayudar a los hogares de la Costa Caribe Colombiana a entender, monitorear y reducir su consumo eléctrico en tiempo real.
+
+## Descripción del proyecto
+
+Este proyecto corresponde a la interfaz web de presentación de MediLEO, donde se expone:
+
+- el problema del alto costo de la energía en la región,
+- la propuesta de monitoreo inteligente con hardware IoT,
+- el flujo del sistema desde el medidor hasta la app,
+- el impacto esperado en ahorro y decisiones energéticas,
+- y el equipo detrás del proyecto.
+
+La landing está construida con Astro y Tailwind CSS.
+
+## Tecnologías usadas
+
+- Astro 6
+- Tailwind CSS 4
+- Vite con integración de Tailwind
+
+## Requisitos previos
+
+- Node.js 22.12.0 o superior
+- npm
+
+## Dependencias necesarias
+
+Estas son las dependencias declaradas en el proyecto para que funcione correctamente después de clonar el repositorio:
+
+```json
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "^6.4.7",
+    "tailwindcss": "^4.3.1"
+  }
+}
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Instalación y ejecución
 
-## 🚀 Project Structure
+Desde la raíz del proyecto:
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+git clone <url-del-repositorio>
+cd Landing-MediLeo
+npm install
+npm run dev
+```
+
+Luego abre la URL que indique Astro en tu navegador, normalmente:
+
+```text
+http://localhost:4321/
+```
+
+## Comandos útiles
+
+```bash
+npm install      # instala las dependencias del proyecto
+npm run dev      # inicia el servidor de desarrollo
+npm run build    # genera la versión lista para producción en dist/
+npm run preview  # previsualiza el build localmente
+npm run astro    # ejecuta comandos de Astro
+```
+
+## Estructura del proyecto
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── src/
+│   ├── components/
+│   │   ├── Hero.astro
+│   │   ├── Problem.astro
+│   │   ├── Solution.astro
+│   │   ├── HowItWorks.astro
+│   │   ├── Impact.astro
+│   │   └── Team.astro
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Notas
 
-## 🧞 Commands
+Si luego de clonar el proyecto aparecen errores de dependencias, asegúrate de ejecutar:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm install
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+y de tener una versión compatible de Node.js instalada.

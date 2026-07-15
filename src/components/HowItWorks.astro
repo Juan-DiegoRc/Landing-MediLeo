@@ -112,44 +112,44 @@ const techSpecs = [
     <div class="mx-auto flex w-full max-w-5xl flex-col">
         <EyebrowBadge label="Arquitectura del sistema" />
 
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-3xl font-primary">
+        <h2 class="text-4xl md:text-5xl font-bold text-secondary leading-tight max-w-3xl font-primary">
             Del medidor a tu pantalla en tiempo real
         </h2>
-        <p class="mt-4 text-gray-600 max-w-2xl text-lg font-secondary">
+        <p class="mt-4 text-secondary-900 max-w-2xl text-lg font-secondary">
             MediLEO recorre cuatro etapas automáticas — desde que el sensor
             captura la energía hasta que tú ves el dato en tu app y tomas una
             decisión.
         </p>
 
-        <div class="mt-12 w-full rounded-2xl border border-gray-200 p-6 md:p-8 overflow-x-auto">
+        <div class="mt-12 w-full rounded-2xl border border-quaternary-200 p-6 md:p-8 overflow-x-auto">
             <div class="flex min-w-max md:min-w-0 items-center justify-between gap-2 md:gap-0">
                 {
                     flowItems.map((item) =>
                         item.kind === "node" ? (
                             <div class="flex flex-col items-center justify-center gap-y-2 px-2">
-                                <span class="flex h-14 w-14 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-700">
+                                <span class="flex h-14 w-14 items-center justify-center rounded-xl border border-quaternary-200 bg-quaternary-100 text-secondary-900">
                                     <item.icon
                                         class="h-5 w-5"
                                         aria-hidden="true"
                                     />
                                 </span>
-                                <h3 class="text-sm font-semibold text-gray-900 text-center">
+                                <h3 class="text-sm font-semibold text-secondary text-center">
                                     {item.title}
                                 </h3>
-                                <span class="text-xs text-gray-500 text-center">
+                                <span class="text-xs text-secondary-900/70 text-center">
                                     {item.subtitle}
                                 </span>
-                                <span class="inline-flex items-center rounded-full border border-gray-200 px-2.5 py-0.5 text-xs text-gray-600">
+                                <span class="inline-flex items-center rounded-full border border-quaternary-200 px-2.5 py-0.5 text-xs text-secondary-900">
                                     {item.badge}
                                 </span>
                             </div>
                         ) : (
                             <div class="flex flex-col items-center gap-y-1 px-1 shrink-0">
                                 <MoveRight
-                                    class="h-4 w-4 text-gray-400"
+                                    class="h-4 w-4 text-secondary-900/50"
                                     aria-hidden="true"
                                 />
-                                <span class="text-xs text-gray-400">
+                                <span class="text-xs text-secondary-900/50">
                                     {item.label}
                                 </span>
                             </div>
@@ -162,18 +162,18 @@ const techSpecs = [
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {
                 stepCards.map((step) => (
-                    <div class="rounded-2xl border border-gray-200 p-6">
-                        <div class="flex h-7 w-7 items-center justify-center rounded-full border border-gray-200 text-sm font-medium text-gray-700">
+                    <div class="rounded-2xl border border-quaternary-200 p-6">
+                        <div class="flex h-7 w-7 items-center justify-center rounded-full border border-quaternary-200 text-sm font-medium text-secondary-900">
                             {step.id}
                         </div>
                         <div class="mt-4 flex flex-col gap-y-2">
-                            <span class="text-xs uppercase tracking-wide text-gray-500">
+                            <span class="text-xs uppercase tracking-wide text-secondary-900/70">
                                 {step.eyebrow}
                             </span>
-                            <h3 class="text-lg font-semibold tracking-tight text-gray-900">
+                            <h3 class="text-lg font-semibold tracking-tight text-secondary">
                                 {step.title}
                             </h3>
-                            <p class="text-sm text-gray-600 leading-relaxed">
+                            <p class="text-sm text-secondary-900 leading-relaxed">
                                 {step.description}
                             </p>
                         </div>
@@ -185,11 +185,11 @@ const techSpecs = [
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {
                 techSpecs.map((spec) => (
-                    <div class="flex items-center justify-center rounded-xl border border-gray-200 px-4 py-3">
+                    <div class="flex items-center justify-center rounded-xl border border-quaternary-200 px-4 py-3">
                         <div class="inline-flex items-center gap-3">
-                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-gray-900" />
-                            <span class="text-sm text-gray-600">
-                                <strong class="text-gray-900">
+                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                            <span class="text-sm text-secondary-900">
+                                <strong class="text-secondary">
                                     {spec.label}:{" "}
                                 </strong>
                                 {spec.value}

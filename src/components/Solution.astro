@@ -65,35 +65,35 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
     <div class="mx-auto flex w-full max-w-5xl flex-col">
         <EyebrowBadge label="La solución · Medición inteligente" />
 
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-3xl font-primary">
+        <h2 class="text-4xl md:text-5xl font-bold text-secondary leading-tight max-w-3xl font-primary">
             Medición inteligente al alcance de cada hogar
         </h2>
-        <p class="mt-4 text-gray-600 max-w-2xl text-lg font-secondary">
+        <p class="mt-4 text-secondary-900 max-w-2xl text-lg font-secondary">
             MediLEO convierte datos de consumo eléctrico en información útil,
             clara y accionable — minuto a minuto, desde un dispositivo IoT
             accesible.
         </p>
 
         <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="rounded-2xl border border-gray-200 p-6">
-                <span class="font-medium text-gray-400 mb-5 block text-xs uppercase tracking-wide">
+            <div class="rounded-2xl border border-quaternary-200 p-6">
+                <span class="font-medium text-secondary-900/60 mb-5 block text-xs uppercase tracking-wide">
                     Cómo funciona el sistema
                 </span>
                 <div class="space-y-5">
                     {
                         steps.map((step) => (
                             <div class="flex gap-3 items-start">
-                                <div class="flex items-center justify-center w-7 h-7 rounded-full shrink-0 border border-gray-200 text-sm font-medium text-gray-700">
+                                <div class="flex items-center justify-center w-7 h-7 rounded-full shrink-0 border border-quaternary-200 text-sm font-medium text-secondary-900">
                                     {step.id}
                                 </div>
                                 <div class="space-y-1">
-                                    <h3 class="text-lg font-semibold tracking-tight text-gray-900">
+                                    <h3 class="text-lg font-semibold tracking-tight text-secondary">
                                         {step.title}
                                     </h3>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                    <p class="text-sm text-secondary-900 leading-relaxed">
                                         {step.label}
                                     </p>
-                                    <span class="inline-block border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-600 mt-2">
+                                    <span class="inline-block border border-quaternary-200 rounded-full px-3 py-1 text-xs text-secondary-900 mt-2">
                                         {step.tech}
                                     </span>
                                 </div>
@@ -103,13 +103,13 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                 </div>
             </div>
 
-            <div class="rounded-2xl border border-gray-200 p-6 bg-gray-50">
+            <div class="rounded-2xl border border-quaternary-200 p-6 bg-quaternary-100/60">
                 <div class="flex items-center justify-between mb-5">
-                    <span class="font-medium text-gray-400 text-xs uppercase tracking-wide">
+                    <span class="font-medium text-secondary-900/60 text-xs uppercase tracking-wide">
                         Panel del hogar · Hoy
                     </span>
-                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white border border-gray-200 px-2.5 py-1 text-xs text-gray-600">
-                        <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-primary border border-quaternary-200 px-2.5 py-1 text-xs text-secondary-900">
+                        <span class="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"></span>
                         En vivo
                     </span>
                 </div>
@@ -117,14 +117,14 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                     {
                         dashboardStats.map((stat) => (
-                            <div class="rounded-xl border border-gray-200 bg-white p-3">
-                                <p class="text-xs text-gray-500">
+                            <div class="rounded-xl border border-quaternary-200 bg-primary p-3">
+                                <p class="text-xs text-secondary-900/70">
                                     {stat.label}
                                 </p>
-                                <p class="mt-1 text-lg font-bold text-gray-900">
+                                <p class="mt-1 text-lg font-bold text-secondary">
                                     {stat.value}
                                 </p>
-                                <p class="mt-0.5 text-xs text-gray-400">
+                                <p class="mt-0.5 text-xs text-secondary-900/60">
                                     {stat.change}
                                 </p>
                             </div>
@@ -132,17 +132,17 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                     }
                 </div>
 
-                <div class="rounded-xl border border-gray-200 bg-white p-4">
+                <div class="rounded-xl border border-quaternary-200 bg-primary p-4">
                     <div class="flex items-center justify-between mb-4">
-                        <p class="text-sm font-medium text-gray-900">
+                        <p class="text-sm font-medium text-secondary">
                             Consumo por hora
                         </p>
-                        <p class="text-xs text-gray-400">Últimas 12 h</p>
+                        <p class="text-xs text-secondary-900/60">Últimas 12 h</p>
                     </div>
                     <div class="flex items-end justify-between gap-1 h-24" aria-hidden="true">
                         {
                             hourlyBars.map((height) => (
-                                <div class="flex-1 rounded-sm bg-gray-500/80" style={`height: ${height}%`} />
+                                <div class="flex-1 rounded-sm bg-tertiary-800/80" style={`height: ${height}%`} />
                             ))
                         }
                     </div>
@@ -161,8 +161,8 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
             </div>
         </div>
 
-        <blockquote class="border-l-4 border-gray-200 pl-4 my-10">
-            <p class="text-sm leading-7 italic text-gray-500">
+        <blockquote class="border-l-4 border-quaternary-200 pl-4 my-10">
+            <p class="text-sm leading-7 italic text-secondary-900/70">
                 "La medición inteligente permite un mayor empoderamiento del
                 consumidor eléctrico, al brindarle datos precisos de su uso
                 energético". MediLEO aplica este principio: al conocer y
@@ -173,15 +173,15 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {
                 featureCards.map((card) => (
-                    <div class="rounded-2xl border border-gray-200 p-6">
-                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-700">
+                    <div class="rounded-2xl border border-quaternary-200 p-6">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-quaternary-100 text-secondary-900">
                             <card.icon class="h-5 w-5" aria-hidden="true" />
                         </div>
                         <div class="mt-4 flex flex-col gap-y-2">
-                            <h3 class="text-xl font-semibold text-gray-900">
+                            <h3 class="text-xl font-semibold text-secondary">
                                 {card.title}
                             </h3>
-                            <p class="text-sm text-gray-600 leading-relaxed">
+                            <p class="text-sm text-secondary-900 leading-relaxed">
                                 {card.label}
                             </p>
                         </div>
