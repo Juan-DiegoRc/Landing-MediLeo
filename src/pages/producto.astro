@@ -1,4 +1,9 @@
 ---
+import dashboard from "../assets/images/Dashboard.png";
+import analisi from "../assets/images/Analisi.png";
+import alertas from "../assets/images/Alertas.png";
+import prototipo3d from "../assets/images/Prototipo_3D.png";
+
 const plans = [
   {
     name: "Básico",
@@ -52,11 +57,10 @@ const plans = [
   },
 ];
 
-//Reemplazar src=""
 const screenshots = [
-  { label: "Dashboard principal",      src: "", alt: "Dashboard de consumo en tiempo real" },
-  { label: "Gráfica por hora y día",   src: "", alt: "Gráfica de consumo histórico" },
-  { label: "Alertas inteligentes",     src: "", alt: "Panel de alertas" },
+  { label: "Dashboard principal",    src: dashboard, alt: "Dashboard de consumo en tiempo real" },
+  { label: "Gráfica por hora y día", src: analisi, alt: "Gráfica de consumo histórico" },
+  { label: "Alertas inteligentes",   src: alertas, alt: "Panel de alertas" },
 ];
 ---
 
@@ -130,14 +134,12 @@ const screenshots = [
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- Placeholder del dispositivo -->
-            <div class="rounded-3xl bg-accent/10 border border-border flex items-center justify-center min-h-[340px]">
-              <!--
-                <img src="/assets/fts.svg" alt="Dispositivo MediLEO" class="w-full object-contain rounded-3xl" />
-              -->
-              <div class="text-center p-12 opacity-40">
-                <div class="text-6xl mb-4">⚡</div>
-                <p class="text-sm font-medium text-text">Foto del dispositivo</p>   
-              </div>
+            <div class="rounded-3xl bg-accent/10 border border-border flex items-center justify-center min-h-[340px] overflow-hidden">
+              <img
+                src={prototipo3d.src}
+                alt="Dispositivo MediLEO"
+                class="w-full h-full object-cover"
+              />
             </div>
 
             <div>
@@ -186,14 +188,14 @@ const screenshots = [
           puede entender.
         </p>
 
-        <!-- Grid de screenshots -->
         <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {screenshots.map((shot) => (
-            <div class="rounded-2xl border border-border overflow-hidden">
+            <div class="rounded-2xl border border-border overflow-hidden h-full">
               {shot.src ? (
-                <img src={shot.src} alt={shot.alt} class="w-full object-cover" />
+                <div class="bg-accent/5 flex items-center justify-center p-0 min-h-[240px]">
+                  <img src={shot.src.src} alt={shot.alt} class="w-full max-w-[280px] h-auto object-contain" />
+                </div>
               ) : (
-                /* Placeholder hasta tener los assets reales */
                 <div class="bg-accent/8 min-h-[220px] flex items-center justify-center p-8">
                   <div class="text-center opacity-40">
                     <p class="text-xs font-medium text-text">{shot.alt}</p>

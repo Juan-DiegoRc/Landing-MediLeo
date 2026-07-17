@@ -1,4 +1,8 @@
 ---
+import economico from "../assets/images/economico.png";
+import social from "../assets/images/Social.png";
+import ambiental from "../assets/images/ambiental.png";
+
 const slides = [
   {
     tag: "01 · Económico",
@@ -7,6 +11,7 @@ const slides = [
       "Con visibilidad en tiempo real, las familias identifican exactamente qué dispositivo está disparando su consumo y pueden actuar antes de que llegue la factura. Menos desperdicio, menos gasto.",
     detail:
       "Un hogar de estrato medio en Barranquilla puede recuperar entre $30k y $60k COP al mes ajustando hábitos de uso del aire acondicionado y electrodomésticos ineficientes.",
+    image: economico,
     color: "bg-quaternary-100",
     textColor: "text-secondary",
     tagColor: "bg-quaternary-100 text-secondary",
@@ -18,6 +23,7 @@ const slides = [
       "MediLEO traduce números técnicos en información clara y accionable. Cualquier hogar de la Costa puede entender su consumo sin necesidad de conocimientos de ingeniería.",
     detail:
       "Las regiones que pagan las tarifas más altas del país son las que menos herramientas tienen para entender su consumo. MediLEO cierra esa brecha con tecnología accesible.",
+    image: social,
     color: "bg-secondary",
     textColor: "text-primary",
     tagColor: "bg-primary text-secondary",
@@ -29,6 +35,7 @@ const slides = [
       "Cada kWh que un hogar deja de desperdiciar es energía que la red no tuvo que generar. A escala, miles de hogares con visibilidad reducen la demanda total y las emisiones asociadas.",
     detail:
       "No se trata solo de ahorrar dinero: se trata de consumir con conciencia. MediLEO convierte la medición inteligente en un hábito colectivo de bajo impacto ambiental.",
+    image: ambiental,
     color: "bg-secondary-900",
     textColor: "text-primary",
     tagColor: "bg-primary text-secondary",
@@ -57,28 +64,21 @@ const slides = [
     <div class="overflow-hidden rounded-3xl">
       {slides.map((slide, i) => (
         <div
-          class={'carousel-slide ${i === 0 ? "block" : "hidden"} grid grid-cols-1 md:grid-cols-2 min-h-[420px] rounded-3xl overflow-hidden'}
+          class={`carousel-slide ${i === 0 ? "block" : "hidden"} grid grid-cols-1 md:grid-cols-2 min-h-[420px] rounded-3xl overflow-hidden`}
           data-index={i}
         >
           <!-- Panel de color / imagen -->
-          <div class={'${slide.color} flex items-center justify-center p-12 order-last md:order-first'}>
-            <!--
-              <img src="/assets/impacto-economico.webp" alt="..." class="w-full max-w-xs object-contain" />
-            -->
-            <div class="flex flex-col items-center gap-4 opacity-90">
-              <div class={'text-7xl font-black ${slide.textColor} opacity-20 select-none leading-none'}>
-                {i + 1}
-              </div>
-              <div class={'w-24 h-1 rounded-full ${slide.textColor} opacity-30'}></div>
-              <p class={'text-sm font-semibold tracking-widest uppercase ${slide.textColor} opacity-60'}>
-                MediLEO
-              </p>
-            </div>
+          <div class={`${slide.color} flex items-center justify-center p-0 order-last md:order-first min-h-[280px] md:min-h-full`}>
+            <img
+              src={slide.image.src}
+              alt={slide.title}
+              class="w-full h-full object-cover"
+            />
           </div>
 
           <!-- Contenido -->
           <div class="bg-white flex flex-col justify-center p-8 md:p-12">
-            <span class={'self-start rounded-full px-3 py-1 text-xs font-semibold ${slide.tagColor} mb-5'}>
+            <span class={`self-start rounded-full px-3 py-1 text-xs font-semibold ${slide.tagColor} mb-5`}>
               {slide.tag}
             </span>
             <h3 class="text-2xl md:text-3xl font-bold text-secondary leading-snug">
@@ -101,7 +101,7 @@ const slides = [
       <div class="flex gap-2" id="carousel-dots">
         {slides.map((_, i) => (
           <button
-            class={'carousel-dot h-2 rounded-full transition-all duration-300 ${i === 0 ? "w-6 bg-secondary" : "w-2 bg-quaternary-200"}'}
+            class={`carousel-dot h-2 rounded-full transition-all duration-300 ${i === 0 ? "w-6 bg-secondary" : "w-2 bg-quaternary-200"}`}
             data-dot={i}
             aria-label={`Ir al slide ${i + 1}`}
           />
