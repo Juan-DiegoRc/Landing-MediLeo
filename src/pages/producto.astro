@@ -52,7 +52,7 @@ const plans = [
   },
 ];
 
-//Reemplaza src="" con tus assets
+//Reemplazar src=""
 const screenshots = [
   { label: "Dashboard principal",      src: "", alt: "Dashboard de consumo en tiempo real" },
   { label: "Gráfica por hora y día",   src: "", alt: "Gráfica de consumo histórico" },
@@ -67,7 +67,6 @@ const screenshots = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MediLEO — El dispositivo y los planes</title>
     <link rel="icon" type="image/svg+xml" href="/file.svg" />
-    <!-- Mismos estilos globales que el index -->
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
 
@@ -133,8 +132,7 @@ const screenshots = [
             <!-- Placeholder del dispositivo -->
             <div class="rounded-3xl bg-accent/10 border border-border flex items-center justify-center min-h-[340px]">
               <!--
-                ✏️ REEMPLAZA por foto real del dispositivo:
-                <img src="/assets/dispositivo.webp" alt="Dispositivo MediLEO" class="w-full object-contain rounded-3xl" />
+                <img src="/assets/fts.svg" alt="Dispositivo MediLEO" class="w-full object-contain rounded-3xl" />
               -->
               <div class="text-center p-12 opacity-40">
                 <div class="text-6xl mb-4">⚡</div>
@@ -142,7 +140,6 @@ const screenshots = [
               </div>
             </div>
 
-            <!-- Specs -->
             <div>
               <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight">
                 Pequeño en tamaño, grande en datos
@@ -211,7 +208,6 @@ const screenshots = [
         </div>
       </section>
 
-      <!-- ── PRECIOS ────────────────────────────────────────────── -->
       <section id="precios" class="px-6 py-24 bg-surface">
         <div class="max-w-6xl mx-auto">
           <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm text-text/60 mb-6">
