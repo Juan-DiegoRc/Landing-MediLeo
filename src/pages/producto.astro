@@ -1,0 +1,322 @@
+---
+const plans = [
+  {
+    name: "Básico",
+    price: "22.000",
+    period: "mes",
+    description: "Para hogares que quieren empezar a entender su consumo eléctrico.",
+    highlight: false,
+    cta: "Comenzar ahora",
+    features: [
+      { text: "2 dispositivos MediLEO incluidos",   included: true },
+      { text: "Garantía del equipo",                included: true },
+      { text: "Acceso a historial de consumo",      included: true },
+      { text: "App web + móvil",                    included: true },
+      { text: "Soporte",                            included: true },
+    ],
+  },
+  {
+    name: "Hogar",
+    price: "45.000",
+    period: "mes",
+    description: "Para familias que quieren control completo y recomendaciones personalizadas.",
+    highlight: true,
+    cta: "Elegir Hogar",
+    features: [
+      { text: "4 dispositivos MediLEO incluidos",   included: true },
+      { text: "Garantía del equipo",                included: true },
+      { text: "Acceso a historial de consumo",      included: true },
+      { text: "Alertas de consumo anómalo",         included: true },
+      { text: "App web + móvil",                    included: true },
+      { text: "Reportes mensuales automáticos",     included: true },
+      { text: "Soporte",                            included: true },
+    ],
+  },
+  {
+    name: "Premium",
+    price: "80.000",
+    period: "mes",
+    description: "Análisis avanzado, IA y soporte dedicado para el hogar más exigente.",
+    highlight: false,
+    cta: "Elegir Premium",
+    features: [
+      { text: "5 dispositivos MediLEO incluidoss",  included: true },
+      { text: "Garantía del equipo",                included: true },
+      { text: "Acceso a historial de consumo",      included: true },
+      { text: "Alertas de consumo anómalo",         included: true },
+      { text: "App web + móvil",                    included: true },
+      { text: "Reportes mensuales automáticos",     included: true },
+      { text: "Recomendaciones de ahorro con IA",   included: true },
+      { text: "Soporte prioritario",                included: true },
+    ],
+  },
+];
+
+//Reemplaza src="" con tus assets
+const screenshots = [
+  { label: "Dashboard principal",      src: "", alt: "Dashboard de consumo en tiempo real" },
+  { label: "Gráfica por hora y día",   src: "", alt: "Gráfica de consumo histórico" },
+  { label: "Alertas inteligentes",     src: "", alt: "Panel de alertas" },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediLEO — El dispositivo y los planes</title>
+    <link rel="icon" type="image/svg+xml" href="/file.svg" />
+    <!-- Mismos estilos globales que el index -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+
+  <body class="bg-background text-text antialiased">
+
+    <!-- ── HEADER ───────────────────────────────────────────────── -->
+    <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="text-lg font-bold text-text hover:text-accent transition-colors">
+          MediLEO
+        </a>
+        <a
+          href="/#como-funciona"
+          class="inline-flex items-center gap-2 text-sm text-text/60 hover:text-accent transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="h-4 w-4">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── HERO ─────────────────────────────────────────────── -->
+      <section class="px-6 py-24 max-w-6xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-text/60 mb-6">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Dispositivo IoT · Plataforma · Suscripción
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-text leading-tight max-w-4xl mx-auto">
+          El sistema completo, desde el enchufe hasta tu pantalla
+        </h1>
+        <p class="mt-6 text-text/60 max-w-2xl mx-auto text-lg">
+          Un pequeño dispositivo que se instala en tu medidor eléctrico y
+          una plataforma que convierte esos datos en decisiones claras.
+          Sin cables extra. Sin técnicos especializados.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="#precios"
+            class="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-primary hover:opacity-90 transition-opacity">
+            Ver precios
+          </a>
+          <a href="#dispositivo"
+            class="rounded-xl border border-border px-6 py-3 text-sm font-semibold text-text/70 hover:border-accent hover:text-accent transition-colors">
+            Conocer el dispositivo
+          </a>
+        </div>
+      </section>
+
+      <!-- ── DISPOSITIVO ───────────────────────────────────────── -->
+      <section id="dispositivo" class="px-6 py-24 bg-surface">
+        <div class="max-w-6xl mx-auto">
+          <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm text-text/60 mb-6">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+            Hardware · ESP32-S3
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Placeholder del dispositivo -->
+            <div class="rounded-3xl bg-accent/10 border border-border flex items-center justify-center min-h-[340px]">
+              <!--
+                ✏️ REEMPLAZA por foto real del dispositivo:
+                <img src="/assets/dispositivo.webp" alt="Dispositivo MediLEO" class="w-full object-contain rounded-3xl" />
+              -->
+              <div class="text-center p-12 opacity-40">
+                <div class="text-6xl mb-4">⚡</div>
+                <p class="text-sm font-medium text-text">Foto del dispositivo</p>   
+              </div>
+            </div>
+
+            <!-- Specs -->
+            <div>
+              <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight">
+                Pequeño en tamaño, grande en datos
+              </h2>
+              <p class="mt-4 text-text/60 leading-relaxed">
+                El dispositivo MediLEO se conecta de forma no invasiva al medidor
+                de tu hogar. Captura corriente, voltaje, temperatura y potencia
+                cada pocos segundos, y los envía a la nube vía WiFi sin
+                interrumpir el suministro.
+              </p>
+
+              <ul class="mt-8 flex flex-col gap-3">
+                {[
+                  ["Microcontrolador",   "ESP32-S3 N16R8 (WiFi + BT integrado)"],
+                  ["Sensor de corriente","SCT-013 (no invasivo, sin cortar cables)"],
+                  ["Sensor de temperatura","TMP36 integrado"],
+                  ["Métricas medidas",   "Corriente · Voltaje · Potencia · Energía · Temperatura"],
+                  ["Actualización",      "Dato nuevo cada 3 segundos"],
+                  ["Conectividad",       "WiFi 2.4 GHz — sin instalación compleja"],
+                ].map(([label, value]) => (
+                  <li class="grid grid-cols-[160px_1fr] gap-2 text-sm border-b border-border pb-3">
+                    <span class="font-medium text-text">{label}</span>
+                    <span class="text-text/60">{value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── INTERFAZ / SCREENSHOTS ────────────────────────────── -->
+      <section class="px-6 py-24 max-w-6xl mx-auto">
+        <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-text/60 mb-6">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Plataforma · App web y móvil
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight max-w-3xl">
+          La interfaz que convierte datos en decisiones
+        </h2>
+        <p class="mt-4 text-text/60 max-w-2xl text-lg">
+          Gráficas por hora y por día, alertas automáticas y recomendaciones
+          claras — todo en una pantalla que cualquier miembro de la familia
+          puede entender.
+        </p>
+
+        <!-- Grid de screenshots -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {screenshots.map((shot) => (
+            <div class="rounded-2xl border border-border overflow-hidden">
+              {shot.src ? (
+                <img src={shot.src} alt={shot.alt} class="w-full object-cover" />
+              ) : (
+                /* Placeholder hasta tener los assets reales */
+                <div class="bg-accent/8 min-h-[220px] flex items-center justify-center p-8">
+                  <div class="text-center opacity-40">
+                    <p class="text-xs font-medium text-text">{shot.alt}</p>
+                  </div>
+                </div>
+              )}
+              <div class="px-5 py-4 border-t border-border">
+                <p class="text-sm font-semibold text-text">{shot.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ── PRECIOS ────────────────────────────────────────────── -->
+      <section id="precios" class="px-6 py-24 bg-surface">
+        <div class="max-w-6xl mx-auto">
+          <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm text-text/60 mb-6">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+            Planes · Suscripción mensual en COP
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight max-w-3xl">
+            Elige el plan que se ajusta a tu hogar
+          </h2>
+          <p class="mt-4 text-text/60 max-w-2xl text-lg">
+            Sin permanencia mínima. Cancela cuando quieras. El dispositivo
+            físico se incluye con cualquier plan activo.
+          </p>
+
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            {plans.map((plan) => (
+              <div class={`rounded-3xl border p-8 flex flex-col gap-5 relative ${
+                plan.highlight
+                  ? "border-accent bg-accent text-primary shadow-xl scale-[1.03]"
+                  : "border-border bg-white text-text"
+              }`}>
+                {plan.highlight && (
+                  <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span class="rounded-full bg-primary text-accent text-xs font-bold px-4 py-1 shadow">
+                      Más popular
+                    </span>
+                  </div>
+                )}
+
+                <!-- Nombre y descripción -->
+                <div>
+                  <h3 class={`text-lg font-bold ${plan.highlight ? "text-primary" : "text-text"}`}>
+                    {plan.name}
+                  </h3>
+                  <p class={`mt-1 text-sm leading-relaxed ${plan.highlight ? "text-primary/70" : "text-text/60"}`}>
+                    {plan.description}
+                  </p>
+                </div>
+
+                <!-- Precio -->
+                <div class="flex items-end gap-1">
+                  <span class={`text-xs font-semibold ${plan.highlight ? "text-primary/60" : "text-text/40"}`}>
+                    COP $
+                  </span>
+                  <span class={`text-4xl font-black leading-none ${plan.highlight ? "text-primary" : "text-text"}`}>
+                    {plan.price}
+                  </span>
+                  <span class={`text-sm mb-1 ${plan.highlight ? "text-primary/60" : "text-text/40"}`}>
+                    /{plan.period}
+                  </span>
+                </div>
+
+                <!-- CTA -->
+                <a
+                  href="/#contacto"
+                  class={`rounded-xl py-3 text-sm font-semibold text-center transition-opacity hover:opacity-90 ${
+                    plan.highlight
+                      ? "bg-primary text-accent"
+                      : "bg-accent text-primary"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
+
+                <!-- Features -->
+                <ul class="flex flex-col gap-2.5 pt-2">
+                  {plan.features.map((f) => (
+                    <li class={`flex items-start gap-2.5 text-sm ${
+                      f.included
+                        ? plan.highlight ? "text-primary" : "text-text"
+                        : plan.highlight ? "text-primary/30" : "text-text/30"
+                    }`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class={`h-4 w-4 mt-0.5 shrink-0 ${f.included ? "opacity-100" : "opacity-30"}`}>
+                        {f.included
+                          ? <polyline points="20 6 9 17 4 12"/>
+                          : <line x1="5" y1="12" x2="19" y2="12"/>
+                        }
+                      </svg>
+                      {f.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p class="mt-8 text-center text-sm text-text/40">
+            Todos los precios incluyen el hardware. El dispositivo permanece
+            activo mientras la suscripción esté vigente.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER SIMPLE ─────────────────────────────────────────── -->
+    <footer class="border-t border-border px-6 py-8">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-text/40">
+        <p>&copy; {new Date().getFullYear()} MediLEO. Todos los derechos reservados.</p>
+        <a href="/" class="hover:text-accent transition-colors">← Volver al inicio</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

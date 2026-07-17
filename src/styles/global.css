@@ -8,6 +8,11 @@
     --color-secondary: #221300;
     --color-tertiary: #523E00;
     --color-quaternary: #FDE047;
+    --color-accent: var(--color-quaternary);
+    --color-text: var(--color-secondary);
+    --color-background: var(--color-primary);
+    --color-surface: var(--color-primary);
+    --color-border: var(--color-quaternary-200);
 
     --color-secondary-900: #512E00;
     
