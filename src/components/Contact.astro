@@ -1,0 +1,105 @@
+---
+// Con Netlify Forms: agrega data-netlify="true" al <form> y listo.
+import { Mail, Clock, Pin } from '@lucide/astro';
+import EyebrowBadge from '../components/common/EyebrowBadge.astro';
+const contactInfo = {
+  email: 'contacto@medileo.com',
+  hoursWeekday: 'Lun – Vie: 8 am – 6 pm',
+  hoursWeekend: 'Sáb: 9 am – 1 pm',
+  location: 'Barranquilla, Colombia',
+};
+---
+
+<section id="contacto" class="px-6 py-24">
+  <div class="mx-auto flex w-full max-w-5xl flex-col">
+    <!-- Eyebrow -->
+    <EyebrowBadge label="Contáctanos" />
+
+    <h2 class="text-4xl md:text-5xl font-bold text-secondary leading-tight max-w-3xl font-primary">¿Tienes preguntas sobre MediLEO?</h2>
+    <p class="mt-4 text-secondary-900/70 max-w-2xl text-lg font-secondary">
+      Escríbenos. Ya sea para saber más del proyecto, una colaboración o simplemente dar feedback — te respondemos a la brevedad.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
+      <!-- Formulario -->
+      <form method="POST" action="#" class="rounded-3xl border border-gray-200 bg-primary p-8 flex flex-col gap-5">
+        <!-- Nombre -->
+        <div class="flex flex-col gap-1.5">
+          <label for="nombre" class="text-sm font-medium text-secondary font-secondary"> Nombre </label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Tu nombre completo"
+            required
+            class="rounded-xl border border-gray-200 px-4 py-3 text-sm text-secondary placeholder:text-secondary-900/40 outline-none focus:border-gray-200 focus:ring-2 focus:ring-gray-200/60 transition"
+          />
+        </div>
+
+        <!-- Correo -->
+        <div class="flex flex-col gap-1.5">
+          <label for="correo" class="text-sm font-medium text-secondary font-secondary"> Correo electrónico </label>
+          <input
+            id="correo"
+            name="correo"
+            type="email"
+            placeholder="tu@correo.com"
+            required
+            class="rounded-xl border border-gray-200 px-4 py-3 text-sm text-secondary placeholder:text-secondary-900/40 outline-none focus:border-gray-200 focus:ring-2 focus:ring-gray-200/60 transition"
+          />
+        </div>
+
+        <!-- Mensaje -->
+        <div class="flex flex-col gap-1.5">
+          <label for="mensaje" class="text-sm font-medium text-secondary font-secondary"> Mensaje </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            placeholder="Cuéntanos en qué podemos ayudarte..."
+            required
+            class="rounded-xl border border-gray-200 px-4 py-3 text-sm text-secondary placeholder:text-secondary-900/40 outline-none focus:border-gray-200 focus:ring-2 focus:ring-gray-200/60 transition resize-none">
+          </textarea>
+        </div>
+
+        <!-- Botón -->
+        <button type="submit" class="mt-1 w-full rounded-xl bg-secondary py-3 text-sm font-semibold text-primary hover:opacity-90 transition-opacity">
+          Enviar mensaje
+        </button>
+      </form>
+
+      <!-- Info de contacto -->
+      <div class="flex flex-col gap-4">
+        <!-- Email -->
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <div class="flex h-9 w-9 items-center rounded-full bg-primary/20 text-secondary mb-2">
+            <Mail />
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary-900/50 mb-1">Correo</p>
+          <a href={'mailto:${contactInfo.email}'} class="text-sm font-medium text-secondary hover:underline break-all font-secondary">
+            {contactInfo.email}
+          </a>
+        </div>
+
+        <!-- Horarios -->
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <div class="flex h-9 w-9 items-center rounded-full bg-primary/20 text-secondary mb-2">
+            <Clock />
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary-900/50 mb-2 font-secondary">Horario de atención</p>
+          <p class="text-sm text-secondary font-secondary">{contactInfo.hoursWeekday}</p>
+          <p class="text-sm text-secondary-900/70 font-secondary">{contactInfo.hoursWeekend}</p>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <div class="flex h-9 w-9 items-center rounded-full bg-primary/20 text-secondary mb-2">
+            <Pin />
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary-900/50 mb-1">Ubicación</p>
+          <p class="text-sm text-secondary font-secondary">{contactInfo.location}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

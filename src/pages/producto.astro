@@ -1,8 +1,13 @@
 ---
+import Logo from "../assets/images/logo-medileo.svg";
+import ProductLayout from "../layouts/ProductLayout.astro";
+
 import dashboard from "../assets/images/Dashboard.png";
 import analisi from "../assets/images/Analisi.png";
 import alertas from "../assets/images/Alertas.png";
 import prototipo3d from "../assets/images/Prototipo_3D.png";
+import EyebrowBadge from "../components/common/EyebrowBadge.astro";
+import { ChevronLeft } from "@lucide/astro";
 
 const plans = [
   {
@@ -64,77 +69,53 @@ const screenshots = [
 ];
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediLEO — El dispositivo y los planes</title>
-    <link rel="icon" type="image/svg+xml" href="/file.svg" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
-  </head>
 
-  <body class="bg-background text-text antialiased">
-
+<ProductLayout>
     <!-- ── HEADER ───────────────────────────────────────────────── -->
-    <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
-      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" class="text-lg font-bold text-text hover:text-accent transition-colors">
-          MediLEO
-        </a>
-        <a
-          href="/#como-funciona"
-          class="inline-flex items-center gap-2 text-sm text-text/60 hover:text-accent transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="h-4 w-4">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
+    <header class="sticky top-0 z-10 border-b border-gray-200 bg-primary">
+      <div class="mx-auto flex min-h-14 max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1 sm:px-6 lg:px-8">
+        <Logo width={140} class="w-32 sm:w-36 md:w-40" />
+        <a href="/#como-funciona" class="inline-flex items-center  gap-2 text-sm font-medium sm:gap-3 sm:text-base lg:gap-4 lg:text-lg text-secondary hover:text-secondary-900 transition-colors">
+          <ChevronLeft class="h-4 w-4" aria-hidden="true"/>
           Volver al inicio
         </a>
       </div>
     </header>
 
     <main>
-
       <!-- ── HERO ─────────────────────────────────────────────── -->
-      <section class="px-6 py-24 max-w-6xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-text/60 mb-6">
-          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-          Dispositivo IoT · Plataforma · Suscripción
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold text-text leading-tight max-w-4xl mx-auto">
-          El sistema completo, desde el enchufe hasta tu pantalla
-        </h1>
-        <p class="mt-6 text-text/60 max-w-2xl mx-auto text-lg">
-          Un pequeño dispositivo que se instala en tu medidor eléctrico y
-          una plataforma que convierte esos datos en decisiones claras.
-          Sin cables extra. Sin técnicos especializados.
-        </p>
-        <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href="#precios"
-            class="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-primary hover:opacity-90 transition-opacity">
-            Ver precios
-          </a>
-          <a href="#dispositivo"
-            class="rounded-xl border border-border px-6 py-3 text-sm font-semibold text-text/70 hover:border-accent hover:text-accent transition-colors">
-            Conocer el dispositivo
-          </a>
+      <section class="flex min-h-[calc(100dvh-6rem)] w-full items-center px-6 py-10 sm:px-8 lg:px-12 lg:py-12 bg-linear-to-br from-5% from-white to-accent">
+        <div class="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+          <EyebrowBadge label="Dispositivo IoT + Plataforma" />
+          <h1 class="text-5xl md:text-6xl font-bold text-text leading-tight max-w-4xl mx-auto font-primary">
+            El sistema completo, desde el enchufe hasta tu pantalla
+          </h1>
+          <p class="mt-6 text-secondary-900 max-w-2xl mx-auto text-lg font-secondary">
+            Un pequeño dispositivo que se instala en tu medidor eléctrico y
+            una plataforma que convierte esos datos en decisiones claras.
+            Sin cables extra. Sin técnicos especializados.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="#precios"
+              class="rounded-xl bg-secondary px-6 py-3 text-sm font-semibold text-primary hover:opacity-90 transition-opacity">
+              Ver precios
+            </a>
+            <a href="#dispositivo"
+              class="rounded-xl px-6 py-3 text-sm font-semibold text-text/70 bg-primary/80 hover:text-secondary hover:bg-primary transition-colors duration-200">
+              Conocer el dispositivo
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- ── DISPOSITIVO ───────────────────────────────────────── -->
       <section id="dispositivo" class="px-6 py-24 bg-surface">
         <div class="max-w-6xl mx-auto">
-          <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm text-text/60 mb-6">
-            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-            Hardware · ESP32-S3
-          </div>
+          <EyebrowBadge label="Hardware · ESP32-S3" />
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- Placeholder del dispositivo -->
-            <div class="rounded-3xl bg-accent/10 border border-border flex items-center justify-center min-h-[340px] overflow-hidden">
+            <div class="rounded-3xl bg-accent/10 border border-gray-200 flex items-center justify-center min-h-85 overflow-hidden">
               <img
                 src={prototipo3d.src}
                 alt="Dispositivo MediLEO"
@@ -143,10 +124,10 @@ const screenshots = [
             </div>
 
             <div>
-              <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight">
+              <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight font-primary">
                 Pequeño en tamaño, grande en datos
               </h2>
-              <p class="mt-4 text-text/60 leading-relaxed">
+              <p class="mt-4 text-secondary-900 leading-relaxed font-secondary">
                 El dispositivo MediLEO se conecta de forma no invasiva al medidor
                 de tu hogar. Captura corriente, voltaje, temperatura y potencia
                 cada pocos segundos, y los envía a la nube vía WiFi sin
@@ -162,9 +143,9 @@ const screenshots = [
                   ["Actualización",      "Dato nuevo cada 3 segundos"],
                   ["Conectividad",       "WiFi 2.4 GHz — sin instalación compleja"],
                 ].map(([label, value]) => (
-                  <li class="grid grid-cols-[160px_1fr] gap-2 text-sm border-b border-border pb-3">
+                  <li class="grid grid-cols-[160px_1fr] gap-2 text-sm border-b border-gray-200 pb-3">
                     <span class="font-medium text-text">{label}</span>
-                    <span class="text-text/60">{value}</span>
+                    <span class="text-secondary-900/70">{value}</span>
                   </li>
                 ))}
               </ul>
@@ -174,52 +155,52 @@ const screenshots = [
       </section>
 
       <!-- ── INTERFAZ / SCREENSHOTS ────────────────────────────── -->
-      <section class="px-6 py-24 max-w-6xl mx-auto">
-        <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-text/60 mb-6">
-          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-          Plataforma · App web y móvil
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight max-w-3xl">
-          La interfaz que convierte datos en decisiones
-        </h2>
-        <p class="mt-4 text-text/60 max-w-2xl text-lg">
-          Gráficas por hora y por día, alertas automáticas y recomendaciones
-          claras — todo en una pantalla que cualquier miembro de la familia
-          puede entender.
-        </p>
+      <section class="px-6 py-24 bg-[#F9F6EE]">
+        <div class="mx-auto flex w-full max-w-6xl flex-col">
+          <EyebrowBadge label="Plataforma · Web + Móvil" />
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary leading-tight max-w-3xl">
+            La interfaz que convierte datos en decisiones
+          </h2>
+          <p class="mt-4 text-secondary-900 max-w-2xl text-lg">
+            Gráficas por hora y por día, alertas automáticas y recomendaciones
+            claras — todo en una pantalla que cualquier miembro de la familia
+            puede entender.
+          </p>
 
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {screenshots.map((shot) => (
-            <div class="rounded-2xl border border-border overflow-hidden h-full">
-              {shot.src ? (
-                <div class="bg-accent/5 flex items-center justify-center p-0 min-h-[240px]">
-                  <img src={shot.src.src} alt={shot.alt} class="w-full max-w-[280px] h-auto object-contain" />
-                </div>
-              ) : (
-                <div class="bg-accent/8 min-h-[220px] flex items-center justify-center p-8">
-                  <div class="text-center opacity-40">
-                    <p class="text-xs font-medium text-text">{shot.alt}</p>
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+            {screenshots.map((shot) => (
+              <div class="flex h-full flex-col overflow-hidden rounded-[22px] border border-gray-200 bg-primary shadow-sm">
+                {shot.src ? (
+                  <div class="flex h-50 items-center justify-center overflow-hidden bg-accent/5 p-0 sm:h-55 lg:h-62.5">
+                    <img
+                      src={shot.src.src}
+                      alt={shot.alt}
+                      class="h-full w-full object-cover object-center"
+                    />
                   </div>
+                ) : (
+                  <div class="flex h-50 items-center justify-center bg-secondary p-8 sm:h-55 lg:h-62.5">
+                    <div class="text-center opacity-40">
+                      <p class="text-xs font-medium text-text">{shot.alt}</p>
+                    </div>
+                  </div>
+                )}
+                <div class="border-t border-gray-200 bg-secondary px-4 py-3 sm:px-5 sm:py-4">
+                  <p class="text-sm font-semibold text-primary">{shot.label}</p>
                 </div>
-              )}
-              <div class="px-5 py-4 border-t border-border">
-                <p class="text-sm font-semibold text-text">{shot.label}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="precios" class="px-6 py-24 bg-surface">
         <div class="max-w-6xl mx-auto">
-          <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm text-text/60 mb-6">
-            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-            Planes · Suscripción mensual en COP
-          </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight max-w-3xl">
+          <EyebrowBadge label="Planes · Suscripción mensual en COP" />
+          <h2 class="text-3xl md:text-4xl font-bold text-text leading-tight max-w-3xl font-primary">
             Elige el plan que se ajusta a tu hogar
           </h2>
-          <p class="mt-4 text-text/60 max-w-2xl text-lg">
+          <p class="mt-4 text-secondary-900 max-w-2xl text-lg font-secondary">
             Sin permanencia mínima. Cancela cuando quieras. El dispositivo
             físico se incluye con cualquier plan activo.
           </p>
@@ -228,12 +209,12 @@ const screenshots = [
             {plans.map((plan) => (
               <div class={`rounded-3xl border p-8 flex flex-col gap-5 relative ${
                 plan.highlight
-                  ? "border-accent bg-accent text-primary shadow-xl scale-[1.03]"
-                  : "border-border bg-white text-text"
+                  ? "border-gray-200 bg-secondary text-primary shadow-xl scale-[1.03]"
+                  : "border-gray-200 bg-primary text-text shadow-sm"
               }`}>
                 {plan.highlight && (
                   <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span class="rounded-full bg-primary text-accent text-xs font-bold px-4 py-1 shadow">
+                    <span class="rounded-full bg-primary text-secondary text-xs font-bold px-4 py-1 shadow">
                       Más popular
                     </span>
                   </div>
@@ -241,10 +222,10 @@ const screenshots = [
 
                 <!-- Nombre y descripción -->
                 <div>
-                  <h3 class={`text-lg font-bold ${plan.highlight ? "text-primary" : "text-text"}`}>
+                  <h3 class={`text-lg font-bold font-primary ${plan.highlight ? "text-primary" : "text-text"}`}>
                     {plan.name}
                   </h3>
-                  <p class={`mt-1 text-sm leading-relaxed ${plan.highlight ? "text-primary/70" : "text-text/60"}`}>
+                  <p class={`mt-1 text-sm leading-relaxed font-secondary-900 ${plan.highlight ? "text-primary/70" : "text-text/60"}`}>
                     {plan.description}
                   </p>
                 </div>
@@ -267,8 +248,8 @@ const screenshots = [
                   href="/#contacto"
                   class={`rounded-xl py-3 text-sm font-semibold text-center transition-opacity hover:opacity-90 ${
                     plan.highlight
-                      ? "bg-primary text-accent"
-                      : "bg-accent text-primary"
+                      ? "bg-primary text-secondary"
+                      : "bg-secondary text-primary"
                   }`}
                 >
                   {plan.cta}
@@ -277,7 +258,7 @@ const screenshots = [
                 <!-- Features -->
                 <ul class="flex flex-col gap-2.5 pt-2">
                   {plan.features.map((f) => (
-                    <li class={`flex items-start gap-2.5 text-sm ${
+                    <li class={`flex items-start gap-2.5 text-sm font-secondary ${
                       f.included
                         ? plan.highlight ? "text-primary" : "text-text"
                         : plan.highlight ? "text-primary/30" : "text-text/30"
@@ -299,7 +280,7 @@ const screenshots = [
             ))}
           </div>
 
-          <p class="mt-8 text-center text-sm text-text/40">
+          <p class="mt-8 text-center text-sm text-secondary-900">
             Todos los precios incluyen el hardware. El dispositivo permanece
             activo mientras la suscripción esté vigente.
           </p>
@@ -309,12 +290,10 @@ const screenshots = [
     </main>
 
     <!-- ── FOOTER SIMPLE ─────────────────────────────────────────── -->
-    <footer class="border-t border-border px-6 py-8">
+    <footer class="border-t border-gray-200 px-6 py-8">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-text/40">
         <p>&copy; {new Date().getFullYear()} MediLEO. Todos los derechos reservados.</p>
         <a href="/" class="hover:text-accent transition-colors">← Volver al inicio</a>
       </div>
     </footer>
-
-  </body>
-</html>
+</ProductLayout>

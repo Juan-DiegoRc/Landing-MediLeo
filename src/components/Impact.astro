@@ -1,7 +1,9 @@
 ---
+import EyebrowBadge from "../components/common/EyebrowBadge.astro";
 import economico from "../assets/images/economico.png";
 import social from "../assets/images/Social.png";
 import ambiental from "../assets/images/ambiental.png";
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
 
 const slides = [
   {
@@ -26,7 +28,7 @@ const slides = [
     image: social,
     color: "bg-secondary",
     textColor: "text-primary",
-    tagColor: "bg-primary text-secondary",
+    tagColor: "bg-quaternary-100 text-secondary",
   },
   {
     tag: "03 · Ambiental",
@@ -38,103 +40,96 @@ const slides = [
     image: ambiental,
     color: "bg-secondary-900",
     textColor: "text-primary",
-    tagColor: "bg-primary text-secondary",
+    tagColor: "bg-quaternary-100 text-secondary",
   },
 ];
 ---
 
-<section id="impact" class="px-6 py-24 max-w-6xl mx-auto">
-  <div class="inline-flex items-center gap-2 rounded-full border border-quaternary-200 bg-primary px-4 py-1.5 text-sm text-secondary-900/70 mb-6">
-    <span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
-    Triple impacto · Económico · Social · Ambiental
-  </div>
+<section id="impact" class="px-6 py-24 bg-[#1A1100]">
+  <div class="mx-auto flex w-full max-w-5xl flex-col">
 
-  <h2 class="text-4xl md:text-5xl font-bold text-secondary leading-tight max-w-3xl">
-    Un solo sistema, tres tipos de impacto
-  </h2>
-  <p class="mt-4 text-secondary-900/70 max-w-2xl text-lg">
-    MediLEO no solo mide energía. Genera valor en tres dimensiones que se
-    refuerzan entre sí: ahorro económico, equidad de información y
-    cuidado ambiental.
-  </p>
+    <EyebrowBadge label="Impacto · Económico · Social ·Ambiental" />
 
-  <!-- Carrusel -->
-  <div class="mt-12 relative" id="carousel">
-    <!-- Slides -->
-    <div class="overflow-hidden rounded-3xl">
-      {slides.map((slide, i) => (
-        <div
-          class={`carousel-slide ${i === 0 ? "block" : "hidden"} grid grid-cols-1 md:grid-cols-2 min-h-[420px] rounded-3xl overflow-hidden`}
-          data-index={i}
-        >
-          <!-- Panel de color / imagen -->
-          <div class={`${slide.color} flex items-center justify-center p-0 order-last md:order-first min-h-[280px] md:min-h-full`}>
-            <img
-              src={slide.image.src}
-              alt={slide.title}
-              class="w-full h-full object-cover"
-            />
+    <h2 class="text-4xl md:text-5xl font-bold text-primary leading-tight max-w-3xl font-primary">
+      Un solo sistema, tres tipos de impacto
+    </h2>
+    <p class="mt-4 text-primary/80 max-w-2xl text-lg font-secondary">
+      MediLEO no solo mide energía. Genera valor en tres dimensiones que se
+      refuerzan entre sí: ahorro económico, equidad de información y
+      cuidado ambiental.
+    </p>
+
+    <!-- Carrusel -->
+    <div class="mt-12 relative" id="carousel">
+      <!-- Slides -->
+      <div class="overflow-hidden rounded-3xl">
+        {slides.map((slide, i) => (
+          <div
+            class={`carousel-slide ${i === 0 ? "block" : "hidden"} grid grid-cols-1 md:grid-cols-2 min-h-105 rounded-3xl overflow-hidden`}
+            data-index={i}
+          >
+            <!-- Panel de color / imagen -->
+            <div class={`${slide.color} flex items-center justify-center p-0 order-last md:order-first min-h-70 md:min-h-full`}>
+              <img
+                src={slide.image.src}
+                alt={slide.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Contenido -->
+            <div class="bg-primary flex flex-col justify-center p-8 md:p-12">
+              <span class={`self-start rounded-full px-3 py-1 text-xs font-semibold font-secondary ${slide.tagColor} mb-5`}>
+                {slide.tag}
+              </span>
+              <h3 class="text-2xl md:text-3xl font-bold text-secondary leading-snug font-primary">
+                {slide.title}
+              </h3>
+              <p class="mt-4 text-secondary-900/70 leading-relaxed font-secondary">
+                {slide.description}
+              </p>
+              <p class="mt-4 text-sm text-secondary-900/60 leading-relaxed border-l-2 border-gray-200 pl-4 font-secondary">
+                {slide.detail}
+              </p>
+            </div>
           </div>
-
-          <!-- Contenido -->
-          <div class="bg-white flex flex-col justify-center p-8 md:p-12">
-            <span class={`self-start rounded-full px-3 py-1 text-xs font-semibold ${slide.tagColor} mb-5`}>
-              {slide.tag}
-            </span>
-            <h3 class="text-2xl md:text-3xl font-bold text-secondary leading-snug">
-              {slide.title}
-            </h3>
-            <p class="mt-4 text-secondary-900/70 leading-relaxed">
-              {slide.description}
-            </p>
-            <p class="mt-4 text-sm text-secondary-900/60 leading-relaxed border-l-2 border-quaternary-200 pl-4">
-              {slide.detail}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <!-- Controles -->
-    <div class="mt-6 flex items-center justify-between">
-      <!-- Dots -->
-      <div class="flex gap-2" id="carousel-dots">
-        {slides.map((_, i) => (
-          <button
-            class={`carousel-dot h-2 rounded-full transition-all duration-300 ${i === 0 ? "w-6 bg-secondary" : "w-2 bg-quaternary-200"}`}
-            data-dot={i}
-            aria-label={`Ir al slide ${i + 1}`}
-          />
         ))}
       </div>
 
-      <!-- Flechas -->
-      <div class="flex gap-2">
-        <button
-          id="carousel-prev"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-quaternary-200 text-secondary-900/60 hover:border-secondary hover:text-secondary transition-colors"
-          aria-label="Anterior"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="h-4 w-4">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </button>
-        <button
-          id="carousel-next"
-          class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:opacity-90 transition-opacity"
-          aria-label="Siguiente"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="h-4 w-4">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button>
+      <!-- Controles -->
+      <div class="mt-6 flex items-center justify-between">
+        <!-- Dots -->
+        <div class="flex gap-2" id="carousel-dots">
+          {slides.map((_, i) => (
+            <button
+              class={`carousel-dot h-2 rounded-full transition-all duration-300 ${i === 0 ? "w-6 bg-quaternary" : "w-2 bg-quaternary-200"}`}
+              data-dot={i}
+              aria-label={`Ir al slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <!-- Flechas -->
+        <div class="flex gap-2">
+          <button
+            id="carousel-prev"
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-secondary hover:opacity-90 transition-opacity"
+            aria-label="Anterior"
+          >
+            <ChevronLeft/>
+          </button>
+          <button
+            id="carousel-next"
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-secondary hover:opacity-90 transition-opacity"
+            aria-label="Siguiente"
+          >
+            <ChevronRight/>
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
 </section>
 
 <script>
@@ -153,7 +148,7 @@ const slides = [
     slides[current].classList.remove("hidden");
     slides[current].classList.add("block");
     dots[current].classList.remove("w-2", "bg-quaternary-200");
-    dots[current].classList.add("w-6", "bg-secondary");
+    dots[current].classList.add("w-6", "bg-quaternary");
   }
 
   document.getElementById("carousel-next")?.addEventListener("click", () => goTo(current + 1));

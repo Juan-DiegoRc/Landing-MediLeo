@@ -1,9 +1,10 @@
 ---
 import {
-    MoveRight,
+    ChevronRight,
     Cloud,
     Cpu,
     House,
+    MoveRight,
     Smartphone,
     type Icon as IconType,
 } from "@lucide/astro";
@@ -108,7 +109,7 @@ const techSpecs = [
 ];
 ---
 
-<section id="how-it-works" class="px-6 py-24">
+<section id="how-it-works" class="px-6 py-24 bg-[#F9F6EE]">
     <div class="mx-auto flex w-full max-w-5xl flex-col">
         <EyebrowBadge label="Arquitectura del sistema" />
 
@@ -121,13 +122,13 @@ const techSpecs = [
             decisión.
         </p>
 
-        <div class="mt-12 w-full rounded-2xl border border-quaternary-200 p-6 md:p-8 overflow-x-auto">
+        <div class="mt-12 w-full rounded-2xl p-6 md:p-8 overflow-x-auto bg-primary shadow-md">
             <div class="flex min-w-max md:min-w-0 items-center justify-between gap-2 md:gap-0">
                 {
                     flowItems.map((item) =>
                         item.kind === "node" ? (
                             <div class="flex flex-col items-center justify-center gap-y-2 px-2">
-                                <span class="flex h-14 w-14 items-center justify-center rounded-xl border border-quaternary-200 bg-quaternary-100 text-secondary-900">
+                                <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary text-primary">
                                     <item.icon
                                         class="h-5 w-5"
                                         aria-hidden="true"
@@ -139,16 +140,13 @@ const techSpecs = [
                                 <span class="text-xs text-secondary-900/70 text-center">
                                     {item.subtitle}
                                 </span>
-                                <span class="inline-flex items-center rounded-full border border-quaternary-200 px-2.5 py-0.5 text-xs text-secondary-900">
+                                <span class="inline-flex items-center rounded-full border border-quaternary-200 px-2.5 py-0.5 text-xs bg-quaternary-100 text-secondary-900">
                                     {item.badge}
                                 </span>
                             </div>
                         ) : (
                             <div class="flex flex-col items-center gap-y-1 px-1 shrink-0">
-                                <MoveRight
-                                    class="h-4 w-4 text-secondary-900/50"
-                                    aria-hidden="true"
-                                />
+                                <MoveRight class="h-6 w-6 text-secondary" aria-hidden="true"/>
                                 <span class="text-xs text-secondary-900/50">
                                     {item.label}
                                 </span>
@@ -162,8 +160,8 @@ const techSpecs = [
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {
                 stepCards.map((step) => (
-                    <div class="rounded-2xl border border-quaternary-200 p-6">
-                        <div class="flex h-7 w-7 items-center justify-center rounded-full border border-quaternary-200 text-sm font-medium text-secondary-900">
+                    <div class="rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-primary">
+                        <div class="flex h-7 w-7 items-center justify-center rounded-full text-sm font-medium bg-secondary text-primary">
                             {step.id}
                         </div>
                         <div class="mt-4 flex flex-col gap-y-2">
@@ -185,11 +183,11 @@ const techSpecs = [
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {
                 techSpecs.map((spec) => (
-                    <div class="flex items-center justify-center rounded-xl border border-quaternary-200 px-4 py-3">
+                    <div class="flex items-center justify-center rounded-xl border border-secondary-900 bg-secondary-800 px-4 py-3">
                         <div class="inline-flex items-center gap-3">
-                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-                            <span class="text-sm text-secondary-900">
-                                <strong class="text-secondary">
+                            <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                            <span class="text-sm text-primary">
+                                <strong class="text-primary">
                                     {spec.label}:{" "}
                                 </strong>
                                 {spec.value}
@@ -201,26 +199,12 @@ const techSpecs = [
         </div>
 
         <div class="mt-16 flex flex-col items-center gap-3 text-center">
-            <p class="text-sm text-text/50">
+            <p class="text-sm text-secondary-900">
                 ¿Quieres saber más sobre el hardware, la interfaz y los precios?
             </p>
-            <a
-                href="/producto"
-                class="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-primary hover:opacity-90 transition-opacity"
-            >
+            <a href="/producto" class="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-secondary hover:opacity-90 transition-opacity">
                 Más información del producto
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="h-4 w-4"
-                >
-                    <polyline points="9 18 15 12 9 6" />
-                </svg>
+                <ChevronRight class="h-4 w-4" aria-hidden="true" />                
             </a>
         </div>
     </div>

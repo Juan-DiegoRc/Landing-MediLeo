@@ -61,7 +61,7 @@ const dashboardStats = [
 const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
 ---
 
-<section id="solution" class="px-6 py-24">
+<section id="solution" class="px-6 py-24 ">
     <div class="mx-auto flex w-full max-w-5xl flex-col">
         <EyebrowBadge label="La solución · Medición inteligente" />
 
@@ -75,7 +75,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
         </p>
 
         <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="rounded-2xl border border-quaternary-200 p-6">
+            <div class="rounded-2xl border border-gray-300 p-6 bg-gray-100">
                 <span class="font-medium text-secondary-900/60 mb-5 block text-xs uppercase tracking-wide">
                     Cómo funciona el sistema
                 </span>
@@ -83,7 +83,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                     {
                         steps.map((step) => (
                             <div class="flex gap-3 items-start">
-                                <div class="flex items-center justify-center w-7 h-7 rounded-full shrink-0 border border-quaternary-200 text-sm font-medium text-secondary-900">
+                                <div class="flex items-center justify-center w-7 h-7 rounded-full shrink-0 text-sm font-medium text-primary bg-secondary">
                                     {step.id}
                                 </div>
                                 <div class="space-y-1">
@@ -93,7 +93,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                                     <p class="text-sm text-secondary-900 leading-relaxed">
                                         {step.label}
                                     </p>
-                                    <span class="inline-block border border-quaternary-200 rounded-full px-3 py-1 text-xs text-secondary-900 mt-2">
+                                    <span class="inline-block rounded-full px-3 py-1 text-xs text-primary bg-secondary-900 mt-2">
                                         {step.tech}
                                     </span>
                                 </div>
@@ -103,12 +103,12 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                 </div>
             </div>
 
-            <div class="rounded-2xl border border-quaternary-200 p-6 bg-quaternary-100/60">
+            <div class="rounded-2xl border border-gray-200 p-6 bg-secondary">
                 <div class="flex items-center justify-between mb-5">
-                    <span class="font-medium text-secondary-900/60 text-xs uppercase tracking-wide">
+                    <span class="font-medium text-primary text-xs uppercase tracking-wide">
                         Panel del hogar · Hoy
                     </span>
-                    <span class="inline-flex items-center gap-1.5 rounded-full bg-primary border border-quaternary-200 px-2.5 py-1 text-xs text-secondary-900">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-primary border border-gray-200 px-2.5 py-1 text-xs text-secondary-900">
                         <span class="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"></span>
                         En vivo
                     </span>
@@ -117,7 +117,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                     {
                         dashboardStats.map((stat) => (
-                            <div class="rounded-xl border border-quaternary-200 bg-primary p-3">
+                            <div class="rounded-xl border border-gray-200 bg-primary p-3 shadow-sm">
                                 <p class="text-xs text-secondary-900/70">
                                     {stat.label}
                                 </p>
@@ -132,7 +132,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                     }
                 </div>
 
-                <div class="rounded-xl border border-quaternary-200 bg-primary p-4">
+                <div class="rounded-xl border border-gray-200 bg-primary p-4">
                     <div class="flex items-center justify-between mb-4">
                         <p class="text-sm font-medium text-secondary">
                             Consumo por hora
@@ -142,13 +142,13 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
                     <div class="flex items-end justify-between gap-1 h-24" aria-hidden="true">
                         {
                             hourlyBars.map((height) => (
-                                <div class="flex-1 rounded-sm bg-tertiary-800/80" style={`height: ${height}%`} />
+                                <div class="flex-1 rounded-sm bg-secondary" style={`height: ${height}%`} />
                             ))
                         }
                     </div>
                 </div>
 
-                <div class="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
+                <div class="mt-4 rounded-xl border border-gray-200 bg-amber-50 px-4 py-3">
                     <p class="text-sm font-medium text-amber-900">
                         Alerta de consumo
                     </p>
@@ -161,7 +161,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
             </div>
         </div>
 
-        <blockquote class="border-l-4 border-quaternary-200 pl-4 my-10">
+        <blockquote class="border-l-4 border-secondary pl-4 my-10">
             <p class="text-sm leading-7 italic text-secondary-900/70">
                 "La medición inteligente permite un mayor empoderamiento del
                 consumidor eléctrico, al brindarle datos precisos de su uso
@@ -173,7 +173,7 @@ const hourlyBars = [35, 42, 28, 55, 72, 88, 95, 78, 65, 48, 40, 52];
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {
                 featureCards.map((card) => (
-                    <div class="rounded-2xl border border-quaternary-200 p-6">
+                    <div class="rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-primary">
                         <div class="flex h-9 w-9 items-center justify-center rounded-full bg-quaternary-100 text-secondary-900">
                             <card.icon class="h-5 w-5" aria-hidden="true" />
                         </div>

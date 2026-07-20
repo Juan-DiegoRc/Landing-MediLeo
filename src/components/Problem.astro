@@ -58,7 +58,7 @@ const problemCards: ProblemCard[] = [
 ];
 ---
 
-<section id="problem" class="px-6 py-24">
+<section id="problem" class="px-6 py-24 bg-[#F9F6EE]">
     <div class="mx-auto flex w-full max-w-5xl flex-col">
         <EyebrowBadge label="El problema" />
 
@@ -74,7 +74,7 @@ const problemCards: ProblemCard[] = [
         <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {
                 stats.map((stat) => (
-                    <div class="rounded-2xl border border-quaternary-200 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <div class="rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-primary">
                         <div class="text-3xl font-semibold text-secondary font-secondary">
                             {stat.value}
                         </div>
@@ -89,8 +89,8 @@ const problemCards: ProblemCard[] = [
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 problemCards.map((card) => (
-                    <div class="rounded-2xl border border-quaternary-200 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-quaternary-100 text-secondary">
+                    <div class="rounded-2xl bg-primary p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-primary">
                             <card.icon class="h-5 w-5" aria-hidden="true" />
                         </div>
                         <div class="mt-4 flex flex-col gap-y-4">
@@ -102,7 +102,7 @@ const problemCards: ProblemCard[] = [
                                     {card.label}
                                 </p>
                             </div>
-                            <span class="max-w-fit inline-flex items-center gap-2 rounded-full border border-quaternary-200 bg-quaternary-100 px-4 py-1.5 text-xs text-secondary-900 font-secondary font-medium">
+                            <span class="max-w-fit inline-flex items-center gap-2 rounded-full bg-quaternary-200 px-2 py-1.5 text-xs text-secondary-900 font-secondary font-medium">
                                 {card.span}
                             </span>
                         </div>
