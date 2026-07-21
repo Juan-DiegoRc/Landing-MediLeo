@@ -2,6 +2,8 @@
 import { defineConfig, fontProviders} from 'astro/config';
 import tailwind from '@tailwindcss/vite';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -23,4 +25,6 @@ export default defineConfig({
     }
 
   ],
+
+  adapter: cloudflare(),
 });
